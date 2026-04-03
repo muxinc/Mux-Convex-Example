@@ -1,0 +1,27 @@
+{
+  "name": "mau-pod",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rsbuild build",
+    "dev": "rsbuild dev --open",
+    "preview": "rsbuild preview"
+  },
+  "dependencies": {
+    "@mux/convex": "^0.3.0",
+    "@mux/convex-mux-init": "^0.2.0",
+    "@mux/mux-node": "^12.8.1",
+    "@videojs/react": "^10.0.0-beta.14",
+    "convex": "^1.34.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "^1.7.1",
+    "@rsbuild/plugin-react": "^1.4.2",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^5.9.3"
+  }
+}

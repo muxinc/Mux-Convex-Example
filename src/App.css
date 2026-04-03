@@ -1,0 +1,203 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  color: #fff;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  background: #0a0a0a;
+}
+
+/* App layout — full viewport, no page scroll */
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.app-header {
+  flex-shrink: 0;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.app-header h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.app-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  min-height: 0; /* allow children to shrink in grid */
+}
+
+@media (max-width: 900px) {
+  .app-main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+}
+
+/* Player section */
+.player-section {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  overflow-y: auto;
+}
+
+.player-placeholder {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  border-radius: 8px;
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Video player */
+.video-player {
+  width: 100%;
+}
+
+.video-player-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #888;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: monospace;
+}
+
+/* Sidebar — scrolls independently, scrollbar on outer edge */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #1a1a1a;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.sidebar-title {
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #666;
+  padding: 1.25rem 1rem 0.75rem;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    border-left: none;
+    border-top: 1px solid #1a1a1a;
+  }
+}
+
+/* Video list — this is the scrollable area */
+.video-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem 1rem;
+  overflow-y: auto;
+}
+
+/* Thin custom scrollbar */
+.video-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.video-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.video-list::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+.video-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.video-list-empty {
+  color: #555;
+  font-size: 0.9rem;
+  padding: 0 1rem;
+}
+
+/* Video card */
+.video-card {
+  display: flex;
+  flex-direction: column;
+  background: #111;
+  border: 1px solid #1a1a1a;
+  border-radius: 8px;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  flex-shrink: 0;
+}
+
+.video-card:hover {
+  border-color: #333;
+}
+
+.video-card--selected {
+  border-color: #fff;
+}
+
+.video-card-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  background: #0a0a0a;
+}
+
+.video-card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0.6rem 0.5rem;
+}
+
+.video-card-id {
+  font-size: 0.7rem;
+  font-family: monospace;
+  color: #999;
+}
+
+.video-card-duration {
+  font-size: 0.7rem;
+  font-family: monospace;
+  color: #666;
+  background: #1a1a1a;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
